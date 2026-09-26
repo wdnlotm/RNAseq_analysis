@@ -12,6 +12,7 @@
 #SBATCH --account=iprime
 #SBATCH --array=1-1
 
+APPTAINER_STORAGE=<where_apptainer_image_stored>
 export NXF_SINGULARITY_CACHEDIR=$APPTAINER_STORAGE
 export APPTAINER_CACHEDIR=$APPTAINER_STORAGE
 
