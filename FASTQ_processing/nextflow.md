@@ -9,7 +9,7 @@
 #SBATCH --ntasks=24
 #SBATCH --mem=256gb
 #SBATCH --time=72:00:00
-#SBATCH --account=iprime
+#SBATCH --account=my_account
 #SBATCH --array=1-1
 
 APPTAINER_STORAGE=<where_apptainer_image_stored>
