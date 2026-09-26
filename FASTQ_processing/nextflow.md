@@ -1,5 +1,6 @@
 # UVA
 ---
+```
 #!/bin/bash
 #SBATCH --job-name=nextflow_bulknaseq_star_rsem
 #SBATCH --nodes=1
@@ -35,3 +36,4 @@ nextflow run nf-core/rnaseq \
 --skip_preseq \
 --skip_markduplicates
 # -resume
+```
