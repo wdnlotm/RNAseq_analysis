@@ -1,0 +1,71 @@
+COND_A Differential Expression Report
+=========================================
+Date: 2026-09-27 08:27:37 EDT EDT
+
+Configuration:
+  Condition:        cond_a   (pos vs neg, reference = neg)
+  Batches:          all
+  Count matrix:     count_table_demo.csv
+  Batch handling:   single batch; no adjustment
+  Design formula:   ~cond_a
+  padj threshold:   0.050
+  Volcano labels:   50
+  enrichGO cutoff:  p < 0.050   (max 20 bars)
+
+Cohort:
+  Total samples:       28
+  cond_a = pos (numerator): 14
+  cond_a = neg (reference):  14
+
+Feature space:
+  Genes in raw count table:     38322
+  Protein-coding genes kept:    19272
+  Genes tested by DESeq2:       19272
+
+DESeq2 Results (cond_a: pos vs neg):
+  Genes with padj < 0.050:       6039
+  Up in pos:                     3718
+  Down in pos:                   2321
+
+Signature Genes (9 in panel):
+  Detected in data:             9
+  Significant (padj < 0.050):    3
+  Up in pos (log2FC > 0):        3
+
+Target Genes (10 in panel):
+  Detected in data:             10
+  Significant (padj < 0.050):    CDK4, MTOR, PARP1, CDK6, TOP1
+
+Enrichment:
+  enrichGO BP terms (p < 0.050): 354
+  MSigDB categories run:        H, C4, C5, C6, C7, C8
+
+Interpretation:
+  6039 genes differentially expressed at padj < 0.050; 3 of 9 signature genes reach significance.
+
+Figures (../outputs/figures):
+  00_meansd_before_vst.png      -> mean-SD, log2 normalized counts
+  01_meansd_after_vst.png       -> mean-SD, after VST
+  02_sample_distance_heatmap.png-> sample-sample Euclidean distances
+  03_variable_gene_heatmap.png  -> top 50 most variable genes
+  04_pca_condition.png          -> PCA coloured by cond_a
+  05_pca_batch.png              -> PCA coloured by batch
+  06_ma_plot.png                -> mean expression vs log2FC
+  07_target_gene_counts.png     -> Normalized counts, target genes
+  08_sig_gene_counts.png        -> Normalized counts, signature genes (+ CD200, KIT)
+  09_top_gene_counts_1_4.png    -> Normalized counts, top DE genes 1-4
+  10_top_gene_counts_5_8.png    -> Normalized counts, top DE genes 5-8
+  11_volcano.png                -> log2FC vs -log10(padj)
+  12-14_enrichgo_<onto>.png     -> enrichGO barplots (BP, CC, MF)
+  15-26_msigdb_<cat>_*.png      -> fgsea table and enrichment curves per category
+
+Tables (../outputs/tables):
+  all_diff_genes_df.csv        -> All genes tested (padj, log2FC, symbol)
+  all_diff_genes.csv           -> All genes, NA-dropped, with significance flag
+  diff_genes_significant.csv   -> Genes with padj < 0.050
+  go_df_<onto>.csv             -> enrichGO results per ontology
+  msigdb_results_<cat>_test.csv -> fgsea results per MSigDB category
+
+Rendered report:
+  RNAseq_DESeq2_with_data_all_groupby_cond_a.html
+
